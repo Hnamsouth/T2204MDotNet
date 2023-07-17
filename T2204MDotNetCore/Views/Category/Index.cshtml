@@ -1,0 +1,42 @@
+﻿@model List<T2204MDotNetCore.Entities.Category>
+@{
+    ViewData["Title"] = "Category List";
+    //var categories1 = ViewData["category"];
+    //var categories2 = ViewBag.categorized;
+    // var product = ViewBag.products;
+}
+
+
+<h1>@ViewData["Title"] </h1>
+
+<a asp-controller="Category" asp-action="Create"> Create Category</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Product count</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var c in Model)
+        {
+            <tr>
+                <th scope="row">@c.Id</th>
+                <td>@c.Name</td>
+                <td>@c.Products.Count</td>
+                <td>
+                    @Html.ActionLink("Sua thong tin", "Edit", new { Id=@c.Id})
+
+                    <a href="@Url.ActionLink("Xoá","Delete",new {Id=@c.Id })"
+                   onclick="return confirm('Xác nhận xoá @c.Name ?')"
+                   class="text-danger">Xoá</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

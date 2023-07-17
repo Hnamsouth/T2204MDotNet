@@ -1,0 +1,39 @@
+﻿@page
+@{
+    var model = ViewBag.Model;
+    var brands = ViewBag.Brands;
+}
+@model T2204MDotNetCore.Models.ProductModelView
+@using(Html.BeginForm("Create","Product",FormMethod.Post)){
+           <div class="mb-3">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m=>m.Name)
+            </div>
+
+             <div class="mb-3">
+                @Html.LabelFor(m => m.Price)
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m=>m.Name)
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description)
+            </div>
+            <select class="form-select" asp-items="Model.categories"></select>
+            /*
+             <div class="mb-3">
+                @Html.LabelFor(c=>c.BrandId)
+                @Html.DropDownList("BrandId", Model.categories,"--Select Brand--")
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(c=>c.CategorId)
+        @Html.DropDownList("CategoryId", Model.brands,"--Select Category--")
+            </div>
+            */
+           
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+};

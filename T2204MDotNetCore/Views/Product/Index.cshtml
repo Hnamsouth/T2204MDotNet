@@ -1,0 +1,34 @@
+﻿@model List<T2204MDotNetCore.Entities.Product>
+@{
+    ViewData["Title"] = "Product list";
+}
+
+
+<h1>@ViewData["Title"] </h1>
+
+<a asp-controller="Product" asp-action="Create"> Create Product</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+            <th scope="col">CategorId</th>
+            <th scope="col">BrandId</th>
+            <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach (var c in Model)
+        {
+              <tr>
+                  <th scope="row">@c.id</th>
+                  <td>@c.Name</td>
+                  <td>@c.Price</td>
+                  <td>@c.CategorId</td>
+                  <td>@c.BrandId</td>
+                  <td>@c.Description</td>
+                </tr>
+        }
+  </tbody>
+</table>
