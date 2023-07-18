@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 namespace T2204MDotNetCore.Entities
 {
-    public class DataContext :DbContext
+    public class Context :DbContext
     {
 
-        public DataContext(DbContextOptions options ) :base(options)
+        public Context(DbContextOptions options ) :base(options)
         {
         }
         // them chieu product sang db (tao bang)

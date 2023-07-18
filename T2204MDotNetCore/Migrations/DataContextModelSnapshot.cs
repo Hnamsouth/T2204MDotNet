@@ -9,7 +9,7 @@ using T2204MDotNetCore.Entities;
 
 namespace T2204MDotNetCore.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(Context))]
     partial class DataContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

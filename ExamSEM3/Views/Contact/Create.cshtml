@@ -1,0 +1,38 @@
+﻿
+@{
+}
+
+@model ExamSEM3.Models.ContactViewModel
+
+@using (Html.BeginForm("Create", "Contact", FormMethod.Post))
+{
+    <div class="mb-3">
+        @Html.LabelFor(m=>m.ContactName)
+        @Html.TextBoxFor(m=>m.ContactName,new{@class="form-control",placehoder="Enter Contact Name"})
+        @Html.ValidationMessageFor(m=>m.ContactName)
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m=>m.ContactNumber)
+        @Html.TextBoxFor(m=>m.ContactNumber,new{@class="form-control",placehoder="Enter ContactNumber"})
+        @Html.ValidationMessageFor(m=>m.ContactNumber)
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m=>m.GroupName)
+        @Html.TextBoxFor(m=>m.GroupName,new{@class="form-control",placehoder="Enter GroupName"})
+        @Html.ValidationMessageFor(m=>m.GroupName)
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m=>m.ContactName)
+        <input type="date" name="HireDate" class="form-control" placeholder="Choose Hire Date"/>
+        @Html.ValidationMessageFor(m=>m.ContactName)
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m=>m.ContactName)
+        <input type="date" name="Birthday" class="form-control" placeholder="Choose Birthday"/>
+        @Html.ValidationMessageFor(m=>m.ContactName)
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+}

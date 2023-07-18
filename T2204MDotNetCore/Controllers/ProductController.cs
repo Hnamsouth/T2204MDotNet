@@ -4,14 +4,16 @@ using System.Runtime.InteropServices;
 using T2204MDotNetCore.Entities;
 using T2204MDotNetCore.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Diagnostics;
 
 namespace T2204MDotNetCore.Controllers
 {
     public class ProductController : Controller
     {
 
-        private readonly DataContext _context;
-        public ProductController(DataContext context)
+        private readonly Context _context;
+        public ProductController(Context context)
         {
             _context= context;
         }
@@ -22,17 +24,15 @@ namespace T2204MDotNetCore.Controllers
         }
         public IActionResult Create()
         {
-            var ctgr = _context.Categories.OrderBy(c => c.Name).OrderByDescending(c => c.Name).ToList<Category>();
-            var brands = _context.Brands.OrderBy(c => c.Name).OrderByDescending(c => c.Name).ToList<Brand>();
+            var ctgr = _context.Categories.ToList<Category>();
+            var brands = _context.Brands.ToList<Brand>();
 
+          
             var model = new ProductModelView();
-            model.categories = new List<SelectListItem>();
-            model.brands = new List<SelectListItem>();
-            model.categories.Add(new SelectListItem { Text = "Laptop", Value = "1" });
-            model.brands.Add(new SelectListItem { Text = "Apple", Value = "1" });
-
+            model.categories = ctgr;
+            model.brands = brands;
+        
             ViewBag.Model = model;
-
             return View(model);
         }
 
@@ -51,7 +51,13 @@ namespace T2204MDotNetCore.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(modelview);
+            return RedirectToAction("Error");
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

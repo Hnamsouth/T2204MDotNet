@@ -12,9 +12,9 @@ namespace T2204MDotNetCore.Controllers
     public class CategoryController : Controller
     {
 
-        private readonly DataContext _context;
+        private readonly Context _context;
 
-        public CategoryController(DataContext context)
+        public CategoryController(Context context)
         {
             _context = context;
         }

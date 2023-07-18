@@ -10,7 +10,7 @@ using T2204MDotNetCore.Entities;
 
 namespace T2204MDotNetCore.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(Context))]
     [Migration("20230717172210_NewMigration")]
     partial class NewMigration
     {

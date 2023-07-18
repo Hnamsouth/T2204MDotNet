@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace T2204MDotNetCore.Entities
 {
+    [Table("Categories")]
     public class Category
     {
         [Key]

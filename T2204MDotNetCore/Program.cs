@@ -6,8 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Add Connection database
-var connectionString = builder.Configuration.GetConnectionString("T2204MDEMO");
-builder.Services.AddDbContext<T2204MDotNetCore.Entities.DataContext>(
+var connectionString = builder.Configuration.GetConnectionString("T2204M");
+builder.Services.AddDbContext<T2204MDotNetCore.Entities.Context>(
     options =>
     {
         options.UseSqlServer(connectionString);

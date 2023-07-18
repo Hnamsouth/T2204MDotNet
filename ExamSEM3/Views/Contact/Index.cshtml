@@ -1,0 +1,44 @@
+﻿
+@{
+}
+@model ExamSEM3.Models.ContactViewModel
+<a asp-controller="Contact" asp-action="Create"> Create Contact</a>
+<button type="button" class="btn btn-primary" asp-controller="Contact" asp-action="SortByName">SortByName</button>
+
+@using (Html.BeginForm("Search", "Contact",FormMethod.Post))
+{
+    <div class="mb-3">
+        <input type="text" name="search" class="form-control" placeholder="search..."> 
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Contact Name</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Group Name</th>
+            <th scope="col">HireDate</th>
+            <th scope="col">Birthday</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+                <tr>
+                    <th scope="row">@c.Id</th>
+                     <td>@c.ContactName</td>
+                    <td>@c.ContactNuumber</td>
+                    <td>@c.GroupName</td>
+                    <td>@c.HireDate</td>
+                    <td>@c.Birthday</td>
+                </tr>
+        }
+
+
+    </tbody>
+</table>

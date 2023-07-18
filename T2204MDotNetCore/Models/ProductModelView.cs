@@ -21,15 +21,31 @@ namespace T2204MDotNetCore.Models
         [AllowNull]
         public string? Description { get; set; }
 
-        [Required]
-        [DisplayName("Select a category")]
+        [Display(Name="Select a category")]
         public int CategorId { get; set; }
-        [Required]
         [DisplayName("Select a brand")]
         public int BrandId { get; set; }
 
-        public List<SelectListItem>  categories { get; set; }
-        public List<SelectListItem> brands { get; set; }
+        public List<Category>?  categories { get; set; }
+        public List<Brand>? brands { get; set; }
+
+        public IEnumerable<SelectListItem>? GetCategoryList()
+        {
+            return categories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Name
+            });
+        }
+
+        public IEnumerable<SelectListItem>? GetBrandList()
+        {
+            return brands.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Name
+            });
+        }
 
 
     }

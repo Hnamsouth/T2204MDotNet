@@ -11,6 +11,6 @@ namespace T2204MDotNetCore.Models
         [Display(Name = "Tên danh mục")]
         public string Name { get; set; }
 
-        public List<Product> products { get; set; }
+        public List<Product>? products { get; set; }
     }
 }
