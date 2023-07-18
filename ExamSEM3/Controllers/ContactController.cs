@@ -15,11 +15,11 @@ namespace ExamSEM3.Controllers
         {
             _context = context;
         }
-
+        [HttpGet]
         async public Task<IActionResult> Index()
         {
-            var model = _context.Contacts.ToList<Contacts>();
-            return View(model);
+            //var model = _context.Contacts.ToList();
+            return View();
         }
 
         [HttpGet]
@@ -47,6 +47,7 @@ namespace ExamSEM3.Controllers
             return RedirectToAction("Index", model);
         }
 
+        [HttpPost]
         async public Task<IActionResult> Search(string data)
         {
             var model = _context.Contacts.FirstOrDefaultAsync(m=> m.ContactName==data);

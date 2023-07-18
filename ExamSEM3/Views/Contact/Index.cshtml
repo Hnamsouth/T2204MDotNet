@@ -1,7 +1,4 @@
-﻿
-@{
-}
-@model ExamSEM3.Models.ContactViewModel
+﻿@model List<ExamSEM3.Models.ContactViewModel>
 <a asp-controller="Contact" asp-action="Create"> Create Contact</a>
 <button type="button" class="btn btn-primary" asp-controller="Contact" asp-action="SortByName">SortByName</button>
 
@@ -18,7 +15,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Contact Name</th>
             <th scope="col">Contact Number</th>
             <th scope="col">Group Name</th>
@@ -30,9 +26,8 @@
         @foreach (var c in Model)
         {
                 <tr>
-                    <th scope="row">@c.Id</th>
                      <td>@c.ContactName</td>
-                    <td>@c.ContactNuumber</td>
+                    <td>@c.ContactNumber</td>
                     <td>@c.GroupName</td>
                     <td>@c.HireDate</td>
                     <td>@c.Birthday</td>
