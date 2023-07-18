@@ -23,10 +23,14 @@ namespace ExamSEM3.Models
         public string GroupName { get; set; }
 
         [Required, Display(Name = "Nhap Ngay Thue")]
-        public DateOnly HireDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime HireDate { get; set; }
 
         [Required, Display(Name = "Nhap Ngay Sinh")]
-        public DateOnly Birthday { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime Birthday { get; set; }
 
     }
 }

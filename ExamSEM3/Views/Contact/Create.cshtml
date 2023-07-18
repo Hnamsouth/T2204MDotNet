@@ -22,14 +22,13 @@
         @Html.ValidationMessageFor(m=>m.GroupName)
     </div>
     <div class="mb-3">
-        @Html.LabelFor(m=>m.ContactName)
-        <input type="date" name="HireDate" class="form-control" placeholder="Choose Hire Date"/>
-        @Html.ValidationMessageFor(m=>m.ContactName)
-    </div>
-    <div class="mb-3">
-        @Html.LabelFor(m=>m.ContactName)
-        <input type="date" name="Birthday" class="form-control" placeholder="Choose Birthday"/>
-        @Html.ValidationMessageFor(m=>m.ContactName)
+        @Html.LabelFor(m=>m.HireDate)
+        @Html.TextBoxFor(m=>m.HireDate,new{@class="form-control",placehoder="Enter HireDate",@type="date"})
+        @Html.ValidationMessageFor(m=>m.HireDate)
+
+        @Html.LabelFor(m=>m.Birthday)
+        @Html.TextBoxFor(m=>m.Birthday,new{@class="form-control",placehoder="Enter HireDate",@type="date"} )
+        @Html.ValidationMessageFor(m=>m.Birthday)
     </div>
 
     <div class="mb-3">

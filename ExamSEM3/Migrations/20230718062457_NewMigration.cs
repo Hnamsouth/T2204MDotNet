@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ExamSEM3.Migrations
 {
     /// <inheritdoc />
-    public partial class ExamSem3 : Migration
+    public partial class NewMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +19,9 @@ namespace ExamSEM3.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ContactName = table.Column<string>(type: "nvarchar(255)", nullable: false),
                     ContactNumber = table.Column<string>(type: "nvarchar(25)", nullable: false),
-                    GroupName = table.Column<string>(type: "nvarchar(255)", nullable: false)
+                    GroupName = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    HireDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Birthday = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
                 constraints: table =>
                 {

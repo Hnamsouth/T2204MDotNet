@@ -1,20 +1,21 @@
-﻿@model List<ExamSEM3.Models.ContactViewModel>
+﻿@model List<ExamSEM3.Entities.Contacts>
 <a asp-controller="Contact" asp-action="Create"> Create Contact</a>
-<button type="button" class="btn btn-primary" asp-controller="Contact" asp-action="SortByName">SortByName</button>
+<a type="button" class="btn btn-primary" asp-controller="Contact" asp-action="SortByName" asp-route-param1="2">SortByName</a>
 
-@using (Html.BeginForm("Search", "Contact",FormMethod.Post))
+@using (Html.BeginForm("Search", "Contact", FormMethod.Post))
 {
     <div class="mb-3">
-        <input type="text" name="search" class="form-control" placeholder="search..."> 
+        <input type="text" name="searchTerm" class="form-control" placeholder="Tìm kiếm...">
     </div>
     <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
     </div>
 }
 
 <table class="table">
     <thead>
         <tr>
+            <th scope="row">Id</th>
             <th scope="col">Contact Name</th>
             <th scope="col">Contact Number</th>
             <th scope="col">Group Name</th>
@@ -23,16 +24,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var c in Model)
+        @if (Model != null)
         {
+            @foreach (var c in Model)
+            {
                 <tr>
-                     <td>@c.ContactName</td>
-                    <td>@c.ContactNumber</td>
-                    <td>@c.GroupName</td>
-                    <td>@c.HireDate</td>
-                    <td>@c.Birthday</td>
-                </tr>
+                             <td>@c.Id</td>
+                             <td>@c.ContactName</td>
+                            <td>@c.ContactNumber</td>
+                            <td>@c.GroupName</td>
+                            <td>@c.HireDate.ToShortDateString()</td>
+                            <td>@c.Birthday.ToShortDateString()</td>
+                        </tr>
+            }
         }
+        
 
 
     </tbody>

@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+
 namespace ExamSEM3.Entities
 {
     public class Context : DbContext
@@ -14,5 +16,6 @@ namespace ExamSEM3.Entities
                 .HasIndex(c => c.ContactName)
                 .IsUnique();
         }
+       
     }
 }
