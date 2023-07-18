@@ -36,7 +36,7 @@ namespace ExamSEM3.Controllers
             
             if (ModelState.IsValid)
             {
-                var check =  _context.Contacts.Any(c => c.ContactName.Equals(data.ContactName));
+                var check = await  _context.Contacts.AnyAsync(c => c.ContactName.Equals(data.ContactName));
                 if ( check)
                 {
                     ModelState.AddModelError("ContactName", "Tên liên hệ đã tồn tại.");
@@ -56,11 +56,11 @@ namespace ExamSEM3.Controllers
             var model = new List<Contacts>();
             if (check == "1")
             {
-                model = _context.Contacts.OrderByDescending(c => c.ContactName).ToList<Contacts>(); ;
+                model =await _context.Contacts.OrderByDescending(c => c.ContactName).ToListAsync<Contacts>(); ;
             }
             else
             {
-                model = _context.Contacts.OrderBy(c => c.ContactName).ToList<Contacts>(); ;
+                model = await _context.Contacts.OrderBy(c => c.ContactName).ToListAsync<Contacts>(); ;
             }
             return View("Index", model);
         }
